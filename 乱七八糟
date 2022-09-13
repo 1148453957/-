@@ -5,3 +5,4 @@
 - btoa('name') &nbsp; &nbsp; &nbsp;  base64转成ASCII码  &nbsp; &nbsp; 字符串为啥是二进制数据？  
 - atob( )    &nbsp; &nbsp; &nbsp;    ASCII码转成base64  
 **所以任何数据都可以通过JSON.stringfy() 转成字符串，然后再转成base64?
+# 2. console.table()打印数组对象似乎不错，省的一个个点开了 
