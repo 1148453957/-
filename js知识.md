@@ -1,7 +1,35 @@
-# 1. ASCII base64,utf-8 gbk
-![download](https://user-images.githubusercontent.com/62737747/180129280-6e525d59-beba-479a-8c38-560743db519b.png)
-- ASCII 转成 二进制 再转成 base64 再转成 二进制 再转成  utf-8？  
-- 内容本质上都是以二级制存的吧  
-- btoa('name') &nbsp; &nbsp; &nbsp;  base64转成ASCII码  &nbsp; &nbsp; 字符串为啥是二进制数据？  
-- atob( )    &nbsp; &nbsp; &nbsp;    ASCII码转成base64  
-**所以任何数据都可以通过JSON.stringfy() 转成字符串，然后再转成base64?
+# 1. 使用策略模式，在if-else或者switch-case情况比较多的时候
+```
+// ==================重构前==================
+function getPrice(tag, originPrice) {
+    // 新人价格
+    if(tag === 'newUser') {
+        return originPrice > 50.1 ? originPrice - 50 : originPrice
+    }
+    // 返场价格
+    if(tag === 'back') {
+         return originPrice > 200 ? originPrice - 50 : originPrice
+    }
+    // 活动价格
+    if(tag === 'activity') {
+        return originPrice > 300 ? originPrice - 100 : originPrice
+    }
+}
+
+// ==================重构后==================
+const priceHandler = {
+    newUser(originPrice){
+        return originPrice > 50.1 ? originPrice - 50 : originPrice
+    },
+    back(originPrice){
+        return originPrice > 200 ? originPrice - 50 : originPrice
+    },
+    activity(originPrice){
+         return originPrice > 300 ? originPrice - 100 : originPrice
+    }
+}
+
+function getPrice(tag, originPrice){
+    return priceHandler[tag](originPrice)
+}
+```
