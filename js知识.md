@@ -16,3 +16,7 @@
         }
         console.log(calculateBonus('A', 20000)) 
 ```
+# 2. 字面量
+let test = 123
+=右边的值就是字面量，
+`${}` 模板字符串，模板字面量
