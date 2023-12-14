@@ -39,3 +39,22 @@ function doSomething() {
   })
 }
 ```
+### 2. 文件下载
+```
+export function resourceDownload(FilePath: string, FileName?: string) {
+  let link = document.createElement('a')
+  link.style.display = 'none'
+  link.href = FilePath
+  link.download = FileName || ''
+  link.target = '_blank'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+```
+### 3. [ ].at(-1)报错，有的浏览器低版本没有这个方法
+npm i -s array.prototype.at  
+在main.js引入  
+import * as at from 'array.prototype.at';  
+at.shim()  
+### 4. 
