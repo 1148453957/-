@@ -42,3 +42,23 @@ outer_function()
 Inner Function: 100
 Outer Function: 42
 ```
+# 5. python可以不按顺序提供部分默认参数,js不可以
+```
+def enroll(name, gender, age=6, city='Beijing'):
+    print('name:', name)
+    print('gender:', gender)
+    print('age:', age)
+    print('city:', city)
+enroll('Adam', 'M', city='Tianjin')
+```
+
+
+
+
+
+
+
+
+
+
+
