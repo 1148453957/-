@@ -68,7 +68,37 @@ def add_end(L=None):
     L.append('END')
     return L
 ```
-# 7. *list
+# 7. generator函数 yield
+每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行
+```
+from datetime import datetime
+
+
+def triangles():
+    r = [1]
+    while True:-
+        print(1, datetime.now())
+        yield r
+        r = [1] + [r[i] + r[i + 1] for i in range(len(r) - 1)] + [1]
+
+
+n = 0
+results = []
+#for循环相当于手动调用next(),每循环一次，就执行一次next()
+# 1 2 1 2 1 2
+for t in triangles():
+    print(2, datetime.now())
+
+    results.append(t)
+    n = n + 1
+    if n == 10:
+        break
+
+for t in results:
+    print(3, datetime.now())
+
+    print(t)
+```
 
 
 
