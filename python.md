@@ -99,7 +99,51 @@ for t in results:
 
     print(t)
 ```
+# 8. filter 求素数，离谱问题，以后要问问高手，实在是想不明白 ????????? 🙃
+```
 
+def _odd_iter():
+    n = 1
+    while n < 100:
+        n = n + 2
+        yield n
+
+
+def _not_divisible(j):
+    s = j
+
+    def test(x):
+        # 不知道为啥，按说传过来的j是个int，应该是个常量，但是实际一直执行的时候，x不变，j从3开始遍历了一遍
+        # 起到了和下面的循环一样的效果
+        print(1111, x, j, s, j == s )
+        return x % j
+        return not any(x % a == 0 for a in m)
+
+    return test
+
+
+def primes():
+    it = _odd_iter()
+    while True:
+        l = next(it)
+        yield l
+        it = filter(_not_divisible(l), it)
+
+
+def main():
+    global m
+    m = []
+    for k in primes():
+        if k < 100:
+            m.append(k)
+            print(k)
+        else:
+            break
+
+
+main()
+
+```
 
 
 
